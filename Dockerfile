@@ -13,10 +13,6 @@ ADD . /app
 RUN pip install -r requirements.txt
 #RUN pip install --no-cache-dir uvicorn gunicorn
 
-
-COPY ./start.sh /start.sh
-RUN chmod +x /start.sh
- 
  
 # 讓 80 連接埠可以從 Docker 容器外部存取
 EXPOSE 80
