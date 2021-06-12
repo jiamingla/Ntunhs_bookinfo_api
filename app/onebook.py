@@ -35,9 +35,9 @@ class NTUNHSLibCrawler(object):
         chrome_options.add_argument('log-level=2') #減少不必要的警告訊息
         
         #----------#
-        #self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
         #沒加版本號不知道能不能過
-        self.driver = webdriver.Chrome()
+        #self.driver = webdriver.Chrome()
         #----------#
         self.driver.implicitly_wait(30)#先等等
         self.base_url = "https://www.google.com/"#起始URL
