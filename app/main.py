@@ -1,5 +1,5 @@
 from enum import Enum
-from onebook import NTUNHSLibCrawler
+#from onebook import NTUNHSLibCrawler
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
@@ -44,5 +44,5 @@ async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
     return keep
 
 # 現測試環境採用調式模式執行
-#if __name__ == "__main__":
-#    uvicorn.run(app, host="0.0.0.0", port=8000)
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
