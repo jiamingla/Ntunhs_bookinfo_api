@@ -1,11 +1,14 @@
 from enum import Enum
-from onebook import NTUNHSLibCrawler
 from fastapi import FastAPI
 from pydantic import BaseModel
 import uvicorn
-
 import asyncio
 import json
+
+#Do not forget the dot. 
+#When you build a package you have to tell where your class is written using this relative path.
+# This is called intra-package references.
+from .onebook import NTUNHSLibCrawler
 
 # 這個是建立資料模型 繼承與BaseModel
 class Item(BaseModel):
