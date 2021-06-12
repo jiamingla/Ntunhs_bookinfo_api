@@ -15,11 +15,12 @@ RUN pip install -r requirements.txt
 
  
 # 讓 80 連接埠可以從 Docker 容器外部存取
-EXPOSE 8000
+EXPOSE 80
 
 # 定義環境變數
 ENV NAME World
 
 # 當 Docker 容器啟動時，自動執行 app.py
-CMD ["python", "app/main.py"]
+#CMD ["python", "app/main.py"]
+CMD uvicorn app.fake_main:app --host 0.0.0.0 --port 80
 
