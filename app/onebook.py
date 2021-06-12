@@ -28,16 +28,16 @@ import os
 class NTUNHSLibCrawler(object):
     def __init__(self,book_url):
         chrome_options = Options()
-        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        #chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
         #https://aishuafei.com/heroku-selenium/
         #有教學
         chrome_options.add_argument("--headless") 
         chrome_options.add_argument('log-level=2') #減少不必要的警告訊息
         
         #----------#
-        self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+        #self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
         #沒加版本號不知道能不能過
-        #self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome()
         #----------#
         self.driver.implicitly_wait(30)#先等等
         self.base_url = "https://www.google.com/"#起始URL
