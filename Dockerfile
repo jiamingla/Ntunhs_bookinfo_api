@@ -26,5 +26,5 @@ ENV NAME World
 #then you can use CMD start_app_command -p $PORT
 # 當 Docker 容器啟動時，自動執行 app.py
 #CMD ["python", "app/main.py"]
-CMD uvicorn app.fake_main:app --host 0.0.0.0 --port $PORT
+CMD uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
