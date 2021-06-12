@@ -33,7 +33,7 @@ class NTUNHSLibCrawler(object):
         #有教學
         chrome_options.add_argument("--headless") 
         chrome_options.add_argument('log-level=2') #減少不必要的警告訊息
-        chrome_options.addArguments("--disable-dev-shm-usage") # overcome limited resource problems
+        chrome_options.add_argument("--disable-dev-shm-usage") # overcome limited resource problems
         
         #----------#
         #self.driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
