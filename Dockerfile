@@ -14,9 +14,12 @@ RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`cu
 RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
 # install xvfb
+# 讓os「假裝」有一個螢幕，讓這些圖形化程式可以順利運行
+# 不過我也不確定刪掉這行能不能夠運行QQ
 RUN apt-get install -yqq xvfb
 
 # set display port to avoid crash
+#設定chromedriver自己要用的port，免得到時候出事。
 ENV DISPLAY=:99
 ENV DBUS_SESSION_BUS_ADDRESS=/dev/null
 
