@@ -35,7 +35,10 @@ chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument("--no-sandbox") 
 ```
 然後記得這句也要附上，不然會跟我一樣又多花半小時找答案<br>
-`self.driver = webdriver.Chrome(chrome_options=chrome_options)`<br>
+```py
+self.driver = webdriver.Chrome(chrome_options=chrome_options)
+```
+<br>
 其他的參考資料或是可能用得到的東西：<br>
 https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker<br>
 https://github.com/heroku/heroku-buildpack-chromedriver<br>
