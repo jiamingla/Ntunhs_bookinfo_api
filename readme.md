@@ -29,12 +29,17 @@ Do not forget the dot. <br>When you build a package you have to tell where your 
 問題：DevToolsActivePort file doesn't exist.<br>
 https://ask.csdn.net/questions/6184568<br>
 解法：加入幾行<br>
-```
+```py
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument('--disable-gpu')
 chrome_options.add_argument("--no-sandbox") 
 ```
 然後記得這句也要附上，不然會跟我一樣又多花半小時找答案<br>
-`self.driver = webdriver.Chrome(chrome_options=chrome_options)`
+`self.driver = webdriver.Chrome(chrome_options=chrome_options)`<br>
+其他的參考資料或是可能用得到的東西：<br>
+https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker<br>
+https://github.com/heroku/heroku-buildpack-chromedriver<br>
+https://blog.gtwang.org/virtualization/docker-basic-tutorial/2/<br>
+https://blog.csdn.net/weixin_42493346/article/details/105854898<br>
 其他問題有機會我再研究，<br>
 我的期末重點不是這個API而是要CALL這個API的APP阿XD<br>
