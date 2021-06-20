@@ -17,7 +17,7 @@ class Item(BaseModel):
 app = FastAPI()
 
 #c = NTUNHSLibCrawler()
-@app.get("/urls/{book_url:path}")
+@app.get("/urls/{book_url:path}", status_code=202)
 async def crawler(book_url: str):
     #print(book_url)
     book_url=book_url.encode('ascii', 'ignore').decode('unicode_escape')
@@ -27,7 +27,7 @@ async def crawler(book_url: str):
     
     return result
 
-@app.post("/url/")
+@app.post("/url/", status_code=202)
 async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
     #print(book_url)
     print(item.url)
