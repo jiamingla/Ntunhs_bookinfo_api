@@ -80,6 +80,10 @@ class NTUNHSLibCrawler(object):
             driver.implicitly_wait(0)
         except NoSuchElementException as e:
             print("無預約")
+        bookinfo = list_data[1:13]
+        bookstatus = list_data[19:28]
+        #book = bookinfo + bookstatus
+        #book.append(image_url)
         book_dict = {}
         #用enumerate來遍歷每個值，直到找到
         #https://www.kite.com/python/answers/how-to-access-previous-and-next-values-when-looping-through-a-list-in-python
