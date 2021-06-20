@@ -27,7 +27,7 @@ async def crawler(book_url: str):
     
     return result
 
-@app.post("/url/", status_code=202)
+@app.post("/url/", status_code=200)
 async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
     #print(book_url)
     print(item.url)
@@ -38,7 +38,7 @@ async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
     
     return result
 
-@app.post("/fake_url/")
+@app.post("/fake_url/", status_code=202)
 async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
     #print(book_url)
     print(item.url)
