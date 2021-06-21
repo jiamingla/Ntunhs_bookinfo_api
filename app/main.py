@@ -1,5 +1,5 @@
 from enum import Enum
-from fastapi import FastAPI
+from fastapi import FastAPI, Response, status
 from pydantic import BaseModel
 import uvicorn
 import asyncio
@@ -28,14 +28,15 @@ async def crawler(book_url: str):
     return result
 
 @app.post("/url/", status_code=200)
-async def crawler(item: Item):# 宣告一個item引數指向Item資料模型
+async def crawler(item: Item, response: Response):# 宣告一個item引數指向Item資料模型
     #print(book_url)
     print(item.url)
     keep = str(item.url.encode('ascii', 'ignore').decode('unicode_escape'))
     crawl = NTUNHSLibCrawler(book_url=keep)
     if(crawl):
         result = crawl.book
-    
+    if(result == {"error":"出事了阿伯"}):
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     return result
 
 @app.post("/fake_url/", status_code=202)
