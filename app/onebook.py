@@ -62,12 +62,17 @@ class NTUNHSLibCrawler(object):
         #filename = Keyword +'.json'
         driver = self.driver
         driver.get(Link_to_page_URL)
-        
-        html = driver.page_source
         #得到當前發好session的網址
-        soup = BeautifulSoup(html, features='html.parser')
+        html = driver.page_source
+        
+        #查詢太多次導致被BAN掉的時候
+        if(driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Navigation Menu'])[1]/following::strong[1]")):
+            self.driver.close()#關閉瀏覽器
+            self.book = {"error":"出事了阿伯"}
+            return True
         #丟到解析庫
-
+        soup = BeautifulSoup(html, features='html.parser')
+        
         #只有一本書的時候
         bookdata = soup.find('ul', {"class": 'tab_panels pct70 detail_page'})
         list_data = []
