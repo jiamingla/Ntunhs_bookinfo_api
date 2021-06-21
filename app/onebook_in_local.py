@@ -70,9 +70,10 @@ class NTUNHSLibCrawler(object):
 
         #只有一本書的時候
         bookdata = soup.find('ul', {"class": 'tab_panels pct70 detail_page'})
+        list_data = []
         list_data = [s for s in bookdata.stripped_strings]
         image_url =  str(soup.select("body > div.columns_container > div.column.pct75.details_left_column > form:nth-child(1) > div.content_container.item_details > div.content > ul.itemservices > li:nth-child(7) > a > img "))[24:79] +"e"
-        
+        if(image_url != ""):image_url=image_url+""
         driver.implicitly_wait(1)
         try:
             driver.find_element_by_link_text("預約")
@@ -109,6 +110,12 @@ class NTUNHSLibCrawler(object):
                     continue
                 if(elem == "館藏分布狀況:"):
                     book_dict['distribution_status'] = list_data[index+1]
+                    continue
+                if(elem == "館藏位置(現況)"):
+                    book_dict['distribution_code'] = list_data[index+1]
+                    book_dict['distribution_much'] = list_data[index+2]
+                    book_dict['distribution_code_internal'] = list_data[index+3]
+                    book_dict['distribution_now'] = list_data[index+4]
                     continue
         book_dict['image_url'] = image_url
         #print(bookinfo)
