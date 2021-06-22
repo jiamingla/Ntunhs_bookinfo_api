@@ -120,8 +120,11 @@ class NTUNHSLibCrawler(object):
                     continue
                 if(elem == "館藏位置(現況)"):
                     book_dict['distribution_code'] = list_data[index+1]
-                    book_dict['distribution_much'] = list_data[index+2]
-                    book_dict['distribution_code_internal'] = list_data[index+3]
+                    #list_data[index+2]會回傳類似"1\u3000 0119264"的值，所以要用split()分割
+                    much_and_inter = list_data[index+2].split("\u3000 ")
+                    book_dict['distribution_much'] = much_and_inter[0]
+                    book_dict['distribution_code_internal'] = much_and_inter[1]
+                    book_dict['book_type'] =  list_data[index+3]
                     book_dict['distribution_now'] = list_data[index+4]
                     continue
         book_dict['image_url'] = image_url
