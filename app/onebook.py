@@ -82,9 +82,9 @@ class NTUNHSLibCrawler(object):
         bookdata = soup.find('ul', {"class": 'tab_panels pct70 detail_page'})
         list_data = []
         list_data = [s for s in bookdata.stripped_strings]
+        #抓圖片網址且整理好
+        image_url =  str(soup.select("body > div.columns_container > div.column.pct75.details_left_column > form:nth-child(1) > div.content_container.item_details > div.content > ul.itemservices > li:nth-child(7) > a > img "))[24:81].replace("\n", "")
 
-        image_url =  str(soup.select("body > div.columns_container > div.column.pct75.details_left_column > form:nth-child(1) > div.content_container.item_details > div.content > ul.itemservices > li:nth-child(7) > a > img "))[24:79]
-        if(image_url != ""):image_url=image_url +"e"
         driver.implicitly_wait(1)
         try:
             driver.find_element_by_link_text("預約")
