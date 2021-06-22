@@ -35,7 +35,7 @@ async def crawler(item: Item, response: Response):# 宣告一個item引數指向
     crawl = NTUNHSLibCrawler(book_url=keep)
     if(crawl):
         result = crawl.book
-    if(result == {"error":"出事了阿伯"}):
+    if(result == {"error":"短時間內向北護圖書館發送太多次請求，所以被要求休息一段時間了QQ"}):
         response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     return result
 

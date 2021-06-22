@@ -66,13 +66,15 @@ class NTUNHSLibCrawler(object):
         html = driver.page_source
         
         #查詢太多次導致被BAN掉的時候
+        """
         if(driver.find_element_by_xpath("(.//*[normalize-space(text()) and normalize-space(.)='Navigation Menu'])[1]/following::strong[1]")):
             self.driver.close()#關閉瀏覽器
-            self.book = {"error":"出事了阿伯"}
+            self.book = {"error":"短時間內向北護圖書館發送太多次請求，所以被要求休息一段時間了QQ"}
             print("小心被BAN掉阿")
             #這裡需要處理如何五分鐘後再查詢之類的情況，或在APP裡寫
             pass
             return True
+        """
         #丟到解析庫
         soup = BeautifulSoup(html, features='html.parser')
         
